@@ -1,0 +1,374 @@
+[{
+    "id": 0,
+    "name": "Berry, Rachel",
+    "dob": "05/22/1984",
+    "mrn": "30084531",
+    "details": [{
+      "name": "Summary",
+      "content": [{
+        "key": "Events",
+        "values": ["event1"]
+      }, {
+        "key": "Procedures",
+        "values": [""]
+      }]
+    }, {
+      "name": "History",
+      "content": [{
+        "key": "PMH",
+        "values": ["pmh1", "pmh2"]
+      }, {
+        "key": "PSH",
+        "values": ["psh1", "psh2"]
+      }, {
+        "key": "Allergies",
+        "values": ["NKDA"]
+      }, {
+        "key": "Home Meds",
+        "values": ["med1"]
+      }]
+    }, {
+      "name": "Meds",
+      "content": [{
+        "key": "Scheduled",
+        "values": ["sch1", "sch2"]
+      }, {
+        "key": "PRN",
+        "values": ["prn1", "prn2"]
+      }, {
+        "key": "Continuous",
+        "values": ["cont1"]
+      }]
+    }, {
+      "name": "Studies",
+      "content": [{
+        "key": "Labs",
+        "values": ["lab1", "lab2"]
+      }, {
+        "key": "Cultures",
+        "values": ["cx1", "cx2"]
+      }, {
+        "key": "Imaging",
+        "values": ["img1"]
+      }]
+    }, {
+      "name": "Tasks",
+      "content": [{
+        "key": "",
+        "values": ["", ""]
+      }, {
+        "key": "",
+        "values": ["", ""]
+      }, {
+        "key": "",
+        "values": [""]
+      }]
+    }],
+    "primaryTeam": {
+      "id": 0,
+      "name": "ACS",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    },
+    "consultTeams": [{
+      "id": 0,
+      "name": "IM",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }, {
+      "id": 1,
+      "name": "Social Work",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }]
+  },
+  {
+    "id": 1,
+    "name": "Hummel, Kurt",
+    "dob": "09/04/1945",
+    "mrn": "30081127",
+    "primaryTeam": {
+      "id": 0,
+      "name": "IM",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    },
+    "consultTeams": [{
+      "id": 1,
+      "name": "GI",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }, {
+      "id": 2,
+      "name": "ACS",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }]
+  },
+  {
+    "id": 2,
+    "name": "Hudson, Finn",
+    "dob": "09/04/1945",
+    "mrn": "30081127",
+    "primaryTeam": {
+      "id": 0,
+      "name": "IM",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    },
+    "consultTeams": [{
+      "id": 1,
+      "name": "GI",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }, {
+      "id": 2,
+      "name": "ACS",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }]
+  },
+  {
+    "id": 3,
+    "name": "Fabray, Quinn",
+    "dob": "09/04/1945",
+    "mrn": "30081127",
+    "primaryTeam": {
+      "id": 0,
+      "name": "IM",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    },
+    "consultTeams": [{
+      "id": 1,
+      "name": "GI",
+      "notes": [
+        "g1", "g2", "g3", "g4"
+      ]
+    }, {
+      "id": 2,
+      "name": "ACS",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }]
+  },
+  {
+    "id": 4,
+    "name": "Abrams, Artie",
+    "dob": "09/04/1945",
+    "mrn": "30081127",
+    "primaryTeam": {
+      "id": 0,
+      "name": "IM",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    },
+    "consultTeams": [{
+      "id": 1,
+      "name": "GI",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }, {
+      "id": 2,
+      "name": "ACS",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "History",
+        "content": "history"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
+    }]
+  }
+]

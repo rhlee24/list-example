@@ -1,0 +1,237 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="style.css"> </head>
+
+<body class="bg-light"
+      id="app"
+      ng-app="app"
+      ng-controller="controller"
+      spellcheck=false>
+  <div id="sidenav"
+       class="sidenav shadow-4">
+    <div class="row h-100">
+      <div class="col-auto d-flex align-items-stretch">
+        <button href="javascript:void(0)"
+                class="btn btn-light border-0 text-secondary rounded-0 px-1"
+                onclick="closeNav()">
+          <i class="fas fa-chevron-circle-right"></i>
+        </button>
+      </div>
+      <div class="col">
+        <button href="javascript:void(0)"
+                class="btn btn-outline-secondary mr-3 mt-2 float-right"
+                onclick="closeNav()"> Close </button>
+      </div>
+      <!-- <div class="col pt-3 px-1">asdf</div> --></div>
+  </div>
+  <nav class="navbar navbar-light bg-light pr-0">
+    <div class="row w-100">
+      <div class="col">
+        <div contenteditable
+             class="lead typeahead w-100 pt-1"
+             placeholder="Search..."></div>
+      </div>
+      <div class="col-auto pr-0">
+        <button class="btn btn-outline-secondary border-0 mr-1"
+                ng-click="showFooter();">EMR</button>
+        <button class="btn btn-outline-secondary border-0 float-right"
+                onclick="openNav()">Menu</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mt-4">
+    <div id="main" class="pr-2">
+      <div ng-repeat="patient in patients">
+        <div class="card mt-2 shadow-1 callout callout-primary">
+          <div class="card-header border-bottom-0 pb-0 px-2 pt-2 bg-white">
+            <div class="row">
+              <div class="col pr-2">
+                <div contenteditable
+                     class="h5 mx-1 typeahead singleline search"
+                     id=patientName_p{{patient.id}}
+                     placeholder="Name">{{patient.name}}</div>
+              </div>
+              <div class="col-auto">
+                <div class="btn-group-toggle float-left"
+                     role="group"
+                     data-toggle="buttons">
+                  <label class="btn btn-outline-secondary border-transparent btn-sm mr-1"
+                         ng-repeat="consultTeam in patient.consultTeams"
+                         data-toggle="collapse"
+                         data-target="#consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}"
+                         aria-expanded="false"
+                         aria-controls="consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}"
+                         id=consultTeamShow_p{{patient.id}}ct{{consultTeam.id}}>
+                    <input type="checkbox"
+                           autocomplete="off">{{consultTeam.name}}</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-row">
+                  <div class="form-group mb-2 col pr-1 pl-0">
+                    <span contenteditable
+                          class="form-control form-control-sm"
+                          placeholder="MRN">{{patient.mrn}}</span>
+                  </div>
+                  <div class="form-group mb-2 col pr-1 pl-0">
+                    <span contenteditable
+                          class="form-control form-control-sm"
+                          placeholder="DOB">{{patient.dob}}</span>
+                  </div>
+                  <div class="form-group mb-2 col pr-1 pl-0">
+                    <span contenteditable
+                          class="form-control form-control-sm"
+                          placeholder="Room">{{patient.room}}</span>
+                  </div>
+                  <div class="form-group col-auto pl-0 d-flex">
+                    <button class="btn btn-outline-secondary btn-sm p-1 ml-0 d-flex"
+                            type="button"
+                            id=primaryTeamOptions_p{{patient.id}}
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                      <i class="fas fa-chevron-circle-down"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right shadow-1"
+                         aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item"
+                         href="#">Topbox</a>
+                      <a class="dropdown-item"
+                         href="#"
+                         ng-click="timeline=patient">Timeline</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item"
+                         href="#">Sign Off</a>
+                      <a class="dropdown-item text-danger"
+                         href="#">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body px-2 py-0">
+            <div class="row mx-1 mb-1">
+              <div class="col p-0 mr-1"
+                   ng-repeat="note in patient.primaryTeam.notes">
+                <div contenteditable
+                     class="form-control p-1 multiline"
+                     ng-click="showDetail(patient.id,note.name)"
+                     placeholder="{{note.name}}">{{note.content}}</div>
+              </div>
+            </div>
+            <div class="collapse multi-collapse"
+                 ng-repeat="consultTeam in patient.consultTeams"
+                 id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
+              <div class="row mx-0 mb-1 px-1 bg-light rounded">
+                <div class="col p-0 mr-1"
+                     ng-repeat="note in consultTeam.notes">
+                  <div class="form-control border-0 p-1 mr-1 bg-transparent text-secondary smalltext">{{note.content}}</div>
+                </div>
+                <div class="col-auto p-0">
+                  <div class="dropdown btn-group btn-group-toggle float-right">
+                    <button class="btn btn-light dropdown-toggle btn-sm text-secondary"
+                            type="button"
+                            id="consultTeamOptions_p{{patient.id}}ct{{consultTeam.id}}"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-right shadow-1"
+                         aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item"
+                         href="#">Make Primary</a>
+                      <a class="dropdown-item text-danger"
+                         href="#">Sign Off</a>
+                    </div>
+                    <button class="btn btn-light btn-sm text-secondary">&times</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--TIMELINE-->
+        <div ng-hide="timeline !== patient">
+          <div class="row">
+            <div class="col-auto pr-1">
+              <div class="ml-2 mr-0 mt-4 badge badge-light border text-secondary font-weight-normal">13:40</div>
+            </div>
+            <div class="col">
+              <div class="card border-transparent my-0 callout callout-primary-light bg-transparent">
+                <div class="card-body px-2">
+                  <div class="row">
+                    <div class="col pr-2">
+                      <div class=""
+                           id=patientName_p{{patient.id}}
+                           placeholder="Name">{{timeline.name}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-outline-secondary m-1 btn-sm"
+                      ng-show="timeline"
+                      ng-click="timeline=''">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer bg-white shadow-4 border-top sticky-bottom container-fluid pt-3 px-4"
+          ng-show="footer==true">
+    <div ng-repeat="patient in patients"
+         ng-if="detailPatient.id==patient.id">
+      <div class="row mb-2">
+        <div class="col">
+          <span class="h5">{{detailPatient.name}}</span>
+          <span class="badge badge-secondary align-text-top">{{detailTitle}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div ng-repeat="detail in patient.details"
+               ng-if="detail.name==detailTitle">
+            <div class="mb-1"
+                 ng-repeat="item in detail.content">
+              <span class="badge badge-light border text-secondary font-weight-normal mr-1 align-text-top">{{item.key}}</span>
+              <span ng-repeat="value in item.values">{{value}} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+<script type="text/javascript"
+        src="script.js"></script>
+
+</html>
