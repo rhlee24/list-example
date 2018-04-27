@@ -7,37 +7,55 @@
       "name": "Summary",
       "content": [{
         "key": "Events",
-        "values": ["event1"]
+        "values": ["No acute events overnight"]
       }, {
         "key": "Procedures",
-        "values": [""]
-      }]
-    }, {
-      "name": "History",
-      "content": [{
-        "key": "PMH",
-        "values": ["pmh1", "pmh2"]
+        "values": ["4/25/18 Appendectomy"]
       }, {
-        "key": "PSH",
-        "values": ["psh1", "psh2"]
+        "key": "Medical History",
+        "values": ["Hypertension", "Diabetes Type 2"]
+      }, {
+        "key": "Surgical History",
+        "values": ["None"]
       }, {
         "key": "Allergies",
         "values": ["NKDA"]
+      }, {
+        "key": "Family History",
+        "values": ["Mother: Breast Cancer", "Father: Hypertension, Diabetes"]
       }, {
         "key": "Home Meds",
         "values": ["med1"]
       }]
     }, {
+      "name": "Vitals",
+      "content": [{
+        "key": "Temperature",
+        "values": ["101.2F"]
+      }, {
+        "key": "Heart Rate",
+        "values": ["89"]
+      }, {
+        "key": "Blood Pressure",
+        "values": ["136/87"]
+      }, {
+        "key": "Respiratory Rate",
+        "values": ["16"]
+      }, {
+        "key": "SpO2",
+        "values": ["100% on RA"]
+      }]
+    }, {
       "name": "Meds",
       "content": [{
         "key": "Scheduled",
-        "values": ["sch1", "sch2"]
+        "values": ["Cefoxitin 2gm IV Q6H", "Norco 5-325mg TABS PO Q6H", "Colace 100mg CAPS PO BID"]
       }, {
         "key": "PRN",
-        "values": ["prn1", "prn2"]
+        "values": ["Dilaudid 1.0mg IV Q4H PRN pain"]
       }, {
         "key": "Continuous",
-        "values": ["cont1"]
+        "values": ["0.9% NS IV Continuous"]
       }]
     }, {
       "name": "Studies",
@@ -71,8 +89,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -91,8 +109,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -110,8 +128,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -136,8 +154,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -156,8 +174,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -175,8 +193,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -201,8 +219,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -221,8 +239,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -240,8 +258,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -266,8 +284,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -292,8 +310,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -318,8 +336,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -338,8 +356,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
@@ -357,8 +375,8 @@
         "name": "Summary",
         "content": "summary"
       }, {
-        "name": "History",
-        "content": "history"
+        "name": "Vitals",
+        "content": "Vitals"
       }, {
         "name": "Meds",
         "content": "meds"
