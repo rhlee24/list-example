@@ -3,6 +3,7 @@
     "name": "Berry, Rachel",
     "dob": "05/22/1984",
     "mrn": "30084531",
+    "room": "7308-A",
     "details": [{
       "name": "Summary",
       "content": [{
@@ -10,13 +11,13 @@
         "values": ["No acute events overnight"]
       }, {
         "key": "Procedures",
-        "values": ["4/25/18 Appendectomy"]
+        "values": ["04/25/18 Appendectomy", "04/24/18 IR Drain Placement"]
       }, {
         "key": "Medical History",
         "values": ["Hypertension", "Diabetes Type 2"]
       }, {
         "key": "Surgical History",
-        "values": ["None"]
+        "values": ["01/09/18 C-Section", "03/23/18 C-Section"]
       }, {
         "key": "Allergies",
         "values": ["NKDA"]
@@ -25,7 +26,7 @@
         "values": ["Mother: Breast Cancer", "Father: Hypertension, Diabetes"]
       }, {
         "key": "Home Meds",
-        "values": ["med1"]
+        "values": ["Lisinopril 5mg TAB PO q24H", "Metformin 850mg TAB PO q24H"]
       }]
     }, {
       "name": "Vitals",
@@ -44,6 +45,12 @@
       }, {
         "key": "SpO2",
         "values": ["100% on RA"]
+      }, {
+        "key": "Intake",
+        "values": ["1200mL"]
+      }, {
+        "key": "Output",
+        "values": ["1000mL"]
       }]
     }, {
       "name": "Meds",
@@ -60,25 +67,34 @@
     }, {
       "name": "Studies",
       "content": [{
-        "key": "Labs",
-        "values": ["lab1", "lab2"]
+        "key": "BMP",
+        "values": ["Na+: 140", "Cl−: 100", "BUN: 20", "Glu: 150", "K+: 4", "CO2: 22", "PCr: 1.0"]
       }, {
-        "key": "Cultures",
-        "values": ["cx1", "cx2"]
+        "key": "CBC",
+        "values": ["FSBG: 230 > 224", "WBC: 16.2", "Hgb: 15.3", "Hct: 42", "Plt: 430"]
       }, {
-        "key": "Imaging",
-        "values": ["img1"]
+        "key": "Blood Cultures",
+        "values": ["No growth after 3 days"]
+      }, {
+        "key": "CT Scan A/P",
+        "values": ["10 mm dilated appendix, normal small bowel, large stool burden, no hepatomegaly. Acute appendicitis"]
+      }, {
+        "key": "CT Scan A/P",
+        "values": ["6 cm abscess RLQ, ileus"]
+      }, {
+        "key": "CXR",
+        "values": ["ET tube in place, bibasilar atelectasis"]
       }]
     }, {
       "name": "Tasks",
       "content": [{
-        "key": "",
-        "values": ["", ""]
+        "key": "Medicine Team 4 Recs",
+        "values": ["1. Start Lisinopril for HTN", "2. Start insulin sliding scale low dose"]
       }, {
-        "key": "",
-        "values": ["", ""]
+        "key": "Social Work Recs",
+        "values": ["Taxi voucher ordered", "Needs primary care physician"]
       }, {
-        "key": "",
+        "key": "Interventional Radiology Recs",
         "values": [""]
       }]
     }],
@@ -87,19 +103,19 @@
       "name": "ACS",
       "notes": [{
         "name": "Summary",
-        "content": "summary"
+        "content": "44 yo F DM, HTN, with RLQ pain x3 days, CT acute appendicitis. C/b abscess now s/p IR drain.\n\nH/o c-section x2"
       }, {
         "name": "Vitals",
-        "content": "vitals"
+        "content": "T: 101.2F\nHR: 90\nBP: 136/86\nRR: 16\nSpO2: 100% on RA"
       }, {
         "name": "Meds",
-        "content": "meds"
+        "content": "SCH: cefoxitin, norco, colace, lisinopril, iss, lovenox\n\nPRN: dilaudid\n\nCONT: NS@125"
       }, {
         "name": "Studies",
-        "content": "studies"
+        "content": "FSBG: 230 > 224\nWBC: 16.2\n\nCT a/p: 8x6x8cm abscess R paracolic gutter\nCT a/p: inflamed appendix"
       }, {
         "name": "Tasks",
-        "content": "tasks"
+        "content": "[ ] drain teaching\n[ ] f/u IR"
       }]
     },
     "consultTeams": [{
@@ -140,11 +156,30 @@
         "name": "Tasks",
         "content": "tasks"
       }]
+    }, {
+      "id": 2,
+      "name": "IR",
+      "notes": [{
+        "name": "Summary",
+        "content": "summary"
+      }, {
+        "name": "Vitals",
+        "content": "Vitals"
+      }, {
+        "name": "Meds",
+        "content": "meds"
+      }, {
+        "name": "Studies",
+        "content": "studies"
+      }, {
+        "name": "Tasks",
+        "content": "tasks"
+      }]
     }]
   },
   {
     "id": 1,
-    "name": "Hummel, Kurt",
+    "name": "Puckerton, Noah",
     "dob": "09/04/1945",
     "mrn": "30081127",
     "primaryTeam": {

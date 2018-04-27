@@ -8,9 +8,7 @@ body {
   margin-bottom: 30%;
 }
 
-#main {
-  transition: 0.15s;
-}
+
 
 .sidenav {
   height: 100%;
@@ -85,6 +83,7 @@ body {
 
 [contenteditable] {
   cursor: text;
+  white-space: pre-wrap;
 }
 
 [contenteditable]:empty:before {
@@ -113,14 +112,14 @@ body {
 }
 
 [contenteditable].multiline {
-  word-break: break-all;
+  word-break: normal;
   border-color: transparent;
   min-height: 5.2em !important;
   font-size: 11pt !important;
 }
 
 .smalltext {
-  font-size: 11pt !important;
+  font-size: 10pt !important;
 }
 
 .btn, .badge, div:focus, span:focus, div:focus {

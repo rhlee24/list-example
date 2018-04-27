@@ -21,7 +21,7 @@ function closeNav() {
 
 
 //INIT ANGULAR APP
-var app = angular.module('app', ['ui.directives', 'ui.filters']);
+var app = angular.module('app', ['ui.directives', 'ui.filters', 'ngSanitize']);
 app.controller('controller', function($scope, $http) {
 
   $scope.userTeam = "ACS";
@@ -64,3 +64,10 @@ app.controller('controller', function($scope, $http) {
   }
 
 })
+
+app.filter('nl2p', function() {
+  return function(text) {
+    text = String(text).trim();
+    return (text.length > 0 ? '<p>' + text.replace(/[\r\n]+/g, '</p><p>') + '</p>' : null);
+  }
+});
