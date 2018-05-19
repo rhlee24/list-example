@@ -2,63 +2,63 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
-  <link rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
-  <link rel="stylesheet"
-        href="style.css"> </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css"> </head>
 
-<body class="bg-light"
-      id="app"
-      ng-app="app"
-      ng-controller="controller"
-      spellcheck=false>
-  <div id="sidenav"
-       class="sidenav shadow-4">
-    <div class="row h-100">
-      <div class="col-auto d-flex align-items-stretch">
-        <button href="javascript:void(0)"
-                class="btn btn-light border-0 text-secondary rounded-0 px-1"
-                onclick="closeNav()">
-          <i class="fas fa-chevron-circle-right"></i>
-        </button>
+<body class="bg-light" id="app" ng-app="app" ng-controller="controller" spellcheck=false>
+  <nav class="navbar navbar-light bg-white pr-0 shadow-3 pb-0 sticky-top">
+    <div class="row w-100 mt-2 mb-2">
+      <div class="col-2">
+        <button class="btn btn-outline-secondary border-0 mt-2 bg-transparent text-secondary" ng-click="openNav()"><i class="fas fa-bars"></i></button>
       </div>
-      <div class="col pl-0">
-        <div class="row">
-          <div class="col px-1 pt-0 pr-2">
-            <button href="javascript:void(0)"
-                    class="btn btn-outline-secondary mr-3 mt-2 float-right"
-                    onclick="closeNav()">Close</button>
+      <div class="col">
+        <div contenteditable class="form-control bg-light typeahead mt-2 lead border" placeholder="Search..."></div>
+      </div>
+      <div class="col-2 pr-0">
+        <!-- <button class="btn btn-outline-secondary border-0 mr-2 btn-sm" ng-click="showFooter();">EMR</button> -->
+      </div>
+    </div>
+    <div class="row w-100 justify-content-center">
+      <div class="col"></div>
+      <div class="col-auto px-1">
+        <div class="btn-group">
+          <button class="btn btn-sm btn-light font-weight-light rounded-top-left mx-0">All</button>
+          <button class="btn btn-sm btn-light font-weight-light rounded-0 mx-0">ICU</button>
+          <button class="btn btn-sm btn-light font-weight-light rounded-0 mx-0">Discharged</button>
+          <button class="btn btn-sm btn-light font-weight-light rounded-top-right mx-0">More...</button>
+        </div>
+      </div>
+      <div class="col-auto px-1">
+        <div class="dropdown">
+          <button class="btn btn-light btn-sm mx-0 font-weight-light rounded-top" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACS<i class="fas fa-angle-down small ml-2"></i></button>
+          <div class="dropdown-menu shadow-4 mt-1" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Elective</a>
+            <a class="dropdown-item" href="#">Trauma</a>
+            <a class="dropdown-item" href="#">SICU</a>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div ng-repeat="patient in patients"
-                 ng-if="detailPatient.id==patient.id;" ng-show="normal==true">
-              <div class="row mb-2"> <span class="col">
-                  <span class="h5">{{detailPatient.name}}</span> <span class="badge badge-secondary align-text-top">{{detailTitle}}</span> </span>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div ng-repeat="detail in patient.details"
-                       ng-if="detail.name==detailTitle">
-                    <div class="mb-3"
-                         ng-mouseover="thumbtack=true"
-                         ng-mouseleave="thumbtack=false"
-                         ng-repeat="item in detail.content">
-                      <div class="text-secondary mr-1 align-text-top font-weight-light smalltext">{{item.key}}
-                        <i class="fas fa-thumbtack small"
-                           ng-show="thumbtack"></i>
-                      </div>
-                      <div ng-repeat="value in item.values">{{value}}</div>
+
+      </div>
+      <div class="col"></div>
+    </div>
+  </nav>
+  <div class="container-fluid mt-2">
+    <div id="main">
+      <div id="sidenav" class="sidenav h-100">
+        <div ng-repeat="patient in patients" ng-if="detailPatient.id==patient.id;" ng-show="sidebar==true">
+          <div class="card card-body pt-0 px-2 bg-light border-0">
+            <span class="h3">{{detailPatient.name}}</span>
+            <div class="h5 text-secondary">{{detailTitle}}</div>
+
+            <div class="row">
+              <div class="col">
+                <div ng-repeat="detail in patient.details" ng-if="detail.name==detailTitle">
+                  <div class="mb-3" ng-repeat="item in detail.content">
+                    <div class="text-secondary align-text-top font-weight-light smalltext pointer" ng-mouseover="thumbtack=true" ng-mouseleave="thumbtack=false" ng-click="thumbtackClick=!thumbtackClick">{{item.key}}
                     </div>
+                    <div ng-repeat="value in item.values" class="smalltext pointer align-items-top" ng-mouseover="thumbtack=true" ng-mouseleave="thumbtack=false" ng-click="thumbtackClick=!thumbtackClick"><span>{{value}}<i class="fas fa-thumbtack ml-1 small text-secondary" ng-show="thumbtack==true||thumbtackClick==true"></i></span></div>
                   </div>
                 </div>
               </div>
@@ -66,246 +66,131 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col pt-3 px-1">asdf</div> --></div>
-    <div class="row"></div>
-  </div>
-  <nav class="navbar navbar-light bg-light pr-0">
-    <div class="row w-100">
-      <div class="col">
-        <div contenteditable
-             class="lead typeahead w-100 pt-1"
-             placeholder="Search..."></div>
-      </div>
-      <div class="col-auto pr-0">
-        <button class="btn btn-outline-secondary border-0 mr-2"
-                ng-click="showFooter();">EMR</button>
-        <button class="btn btn-outline-secondary border-0 float-right"
-                onclick="openNav()">Menu</button>
-      </div>
-    </div>
-  </nav>
-  <div class="container-fluid mt-2">
-    <div id="main"
-         class="pr-2">
       <!--TIMELINE-->
+      <div class="text-secondary mt-3 ml-1 h5">7-West</div>
       <div ng-repeat="patient in patients">
-        <div class="card mt-2 shadow-1 callout callout-primary">
-          <div class="card-header border-bottom-0 pb-0 px-2 bg-white">
+        <!-- <div class="card mt-2 shadow-1 callout callout-primary"> -->
+        <div class="card my-2 card" id="patientCard" ng-mouseover="cardCalloutStyle">
+          <div class="card-body pt-2 pb-0">
             <div class="row">
-              <div class="col pr-2">
-                <div contenteditable
-                     class="h5 mx-1 typeahead singleline search pb-0 mb-0"
-                     id=patientName_p{{patient.id}}
-                     placeholder="Name">{{patient.name}}</div>
+              <div class="col px-1 align-text-bottom">
+                <div contenteditable class="h5 typeahead singleline search" id=patientName_p{{patient.id}} placeholder="Name">{{patient.name}}</div>
               </div>
               <div class="col-auto">
-                <div class="btn-group-toggle float-left"
-                     role="group"
-                     data-toggle="buttons">
-                  <label class="btn btn-outline-secondary border-transparent btn-sm mr-1"
-                         ng-repeat="consultTeam in patient.consultTeams"
-                         data-toggle="collapse"
-                         data-target="#consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}"
-                         aria-expanded="false"
-                         aria-controls="consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}"
-                         id=consultTeamShow_p{{patient.id}}ct{{consultTeam.id}}>
+                <div class="btn-group-toggle float-left" role="group" data-toggle="buttons">
+                  <label class="btn btn-outline-secondary border-transparent btn-sm mr-1" ng-repeat="consultTeam in patient.consultTeams" data-toggle="collapse" data-target="#consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}" aria-expanded="false" aria-controls="consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}"
+                    id=consultTeamShow_p{{patient.id}}ct{{consultTeam.id}}>
                     <input type="checkbox"
                            autocomplete="off">{{consultTeam.name}}</label>
                 </div>
               </div>
               <div class="col-4">
-                <div class="form-row p-0">
-                  <div class="form-group col pr-1 pl-0"> <span contenteditable
-                          class="form-control form-control-sm"
-                          placeholder="MRN">{{patient.mrn}}</span> </div>
-                  <div class="form-group col pr-1 pl-0"> <span contenteditable
-                          class="form-control form-control-sm"
-                          placeholder="DOB">{{patient.dob}}</span> </div>
-                  <div class="form-group col pr-1 pl-0"> <span contenteditable
-                          class="form-control form-control-sm"
-                          placeholder="Room">{{patient.room}}</span> </div>
-                  <div class="form-group col-auto pl-0 d-flex">
-                    <button class="btn btn-outline-secondary btn-sm p-1 ml-0 d-flex"
-                            type="button"
-                            id=primaryTeamOptions_p{{patient.id}}
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
+                <div class="form-inline">
+                  <span contenteditable class="form-control form-control-sm mr-1" placeholder="MRN">{{patient.mrn}}</span>
+                  <span contenteditable class="form-control form-control-sm mr-1" placeholder="DOB">{{patient.dob}}</span>
+                  <span contenteditable class="form-control form-control-sm" placeholder="Room">{{patient.room}}</span>
+                  <button class="btn btn-outline-secondary btn-sm p-1 ml-0 d-flex float-right" type="button" id=primaryTeamOptions_p{{patient.id}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-chevron-circle-down"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right shadow-1"
-                         aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item"
-                         href="#"
-                         ng-click="timeline=patient">Timeline</a>
-                      <a class="dropdown-item"
-                         href="#"
-                         ng-click="diabetes=true;appendicitis=false;abscess=false;normal=false;">Diabetes</a>
-                      <a class="dropdown-item"
-                         href="#"
-                         ng-click="appendicitis=true;diabetes=false;abscess=false;normal=false;">Appendicitis</a>
-                      <a class="dropdown-item"
-                         href="#"
-                         ng-click="abscess=true;diabetes=false;appendicitis=false;normal=false;">Abscess</a>
-                      <a class="dropdown-item"
-                         href="#"
-                         ng-click="abscess=false;diabetes=false;appendicitis=false;normal=false;">Close</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item"
-                         href="#">Sign Off</a>
-                      <a class="dropdown-item text-danger"
-                         href="#">Delete</a>
-                    </div>
+                  <div class="dropdown-menu dropdown-menu-right shadow-4" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" ng-click="timeline=patient">Timeline</a>
+                    <a class="dropdown-item" href="#" ng-click="diabetes=true;appendicitis=false;abscess=false;sidebar=false;noMarkup=false;">Diabetes</a>
+                    <a class="dropdown-item" href="#" ng-click="appendicitis=true;diabetes=false;abscess=false;sidebar=false;noMarkup=false;">Appendicitis</a>
+                    <a class="dropdown-item" href="#" ng-click="abscess=true;diabetes=false;appendicitis=false;sidebar=false;noMarkup=false;">Abscess</a>
+                    <a class="dropdown-item" href="#" ng-click="abscess=false;diabetes=false;appendicitis=false;sidebar=false;noMarkup=true;">Close</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Sign Off</a>
+                    <a class="dropdown-item text-danger" href="#">Delete</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card-body px-2 py-0">
-            <div class="row mx-1 mb-1"
-                 ng-if="appendicitis==true">
+          <div class="card-body px-0 pb-1 pt-0">
+            <div class="row mx-1" ng-if="appendicitis==true">
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">44 yo F DM, HTN, with <span class="text-primary">RLQ pain</span> x3 days, CT <span class="text-primary">acute appendicitis</span>. C/b abscess now s/p IR drain.<br><br>H/o c-section x2</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">44 yo F DM, HTN, with <span class="text-primary">RLQ pain</span> x3 days, CT <span class="text-primary">acute appendicitis</span>. C/b abscess now s/p IR drain.<br><br>H/o c-section x2</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">SCH: <span class="text-primary">cefoxitin</span>, <span class="text-primary">norco</span>, colace, lisinopril, iss, lovenox</span> <br><br>PRN: <span class="text-primary">dilaudid</span> <br><br>CONT: <span class="text-primary">NS@125</span> </div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">SCH: <span class="text-primary">cefoxitin</span>, <span class="text-primary">norco</span>, colace, lisinopril, iss, lovenox</span> <br><br>PRN: <span class="text-primary">dilaudid</span> <br><br>CONT: <span class="text-primary">NS@125</span>                  </div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">FSBG: 230 > 224<br><span class="text-primary">WBC</span>: 16.2 <br><br><span class="text-primary">CT a/p</span>: 8x6x8cm abscess R paracolic gutter <br><span class="text-primary">CT a/p</span>: inflamed appendix</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">FSBG: 230 > 224<br><span class="text-primary">WBC</span>: 16.2 <br><br><span class="text-primary">CT a/p</span>: 8x6x8cm abscess R paracolic gutter <br><span class="text-primary">CT a/p</span>: inflamed appendix</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">[ ] drain teaching<br>[ ] f/u IR<br>[ ] cs medicine for dm management</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">[ ] drain teaching<br>[ ] f/u IR<br>[ ] cs medicine for dm management</div>
               </div>
             </div>
-            <div class="row mx-1 mb-1"
-                 ng-if="diabetes==true">
+            <div class="row mx-1" ng-if="diabetes==true">
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">44 yo F <span class="text-primary">
-  DM</span>, HTN, with RLQ pain</span> x3 days, CT acute appendicitis. C/b abscess now s/p IR drain.<br><br>H/o c-section x2</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">44 yo F <span class="text-primary">DM</span>, HTN, with RLQ pain</span> x3 days, CT acute appendicitis. C/b abscess now s/p IR drain.<br><br>H/o c-section x2</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">SCH: cefoxitin, norco, colace, lisinopril, <span class="text-primary">iss</span>, lovenox <br><br>PRN: dilaudid<br><br>CONT: NS@125 </div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">SCH: cefoxitin, norco, colace, lisinopril, <span class="text-primary">iss</span>, lovenox <br><br>PRN: dilaudid<br><br>CONT: NS@125 </div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}"><span class="text-primary">FSBG</span>: 230 > 224<br>WBC: 16.2 <br><br>CT a/p: 8x6x8cm abscess R paracolic gutter <br>CT a/p: inflamed appendix</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}"><span class="text-primary">FSBG</span>: 230 > 224<br>WBC: 16.2 <br><br>CT a/p: 8x6x8cm abscess R paracolic gutter <br>CT a/p: inflamed appendix</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">[ ] drain teaching<br>[ ] f/u IR<br><span class="text-primary">[ ] cs medicine for dm management</span></div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">[ ] drain teaching<br>[ ] f/u IR<br><span class="text-primary">[ ] cs medicine for dm management</span></div>
               </div>
             </div>
-            <div class="row mx-1 mb-1"
-                 ng-if="abscess==true">
+            <div class="row mx-1" ng-if="abscess==true">
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">44 yo F DM, HTN, with RLQ pain x3 days, <span class="text-primary">CT acute appendicitis</span>. C/b <span class="text-primary">abscess</span> now s/p <span class="text-primary">IR drain</span>.<br><br>H/o c-section x2</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">44 yo F DM, HTN, with RLQ pain x3 days, <span class="text-primary">CT acute appendicitis</span>. C/b <span class="text-primary">abscess</span> now s/p <span class="text-primary">IR drain</span>.<br><br>H/o c-section x2</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">SCH: <span class="text-primary">cefoxitin</span>, <span class="text-primary">norco</span>, colace, lisinopril, iss, lovenox <br><br>PRN: dilaudid<br><br>CONT: NS@125 </div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">SCH: <span class="text-primary">cefoxitin</span>, <span class="text-primary">norco</span>, colace, lisinopril, iss, lovenox <br><br>PRN: dilaudid<br><br>CONT: NS@125 </div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}">FSBG: 230 > 224<br><span class="text-primary">WBC</span>: 16.2 <br><br><span class="text-primary">CT a/p</span>: 8x6x8cm abscess R paracolic gutter <br>CT a/p: inflamed appendix</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}">FSBG: 230 > 224<br><span class="text-primary">WBC</span>: 16.2 <br><br><span class="text-primary">CT a/p</span>: 8x6x8cm abscess R paracolic gutter <br>CT a/p: inflamed appendix</div>
               </div>
               <div class="col p-0 mr-1">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     placeholder="{{note.name}}"><span class="text-primary">[ ] drain teaching</span><br><span class="text-primary">[ ] f/u IR</span><br>[ ] cs medicine for dm management</div>
+                <div contenteditable class="form-control p-1 multiline" placeholder="{{note.name}}"><span class="text-primary">[ ] drain teaching</span><br><span class="text-primary">[ ] f/u IR</span><br>[ ] cs medicine for dm management</div>
               </div>
             </div>
-            <div class="collapse multi-collapse"
-                 ng-repeat="consultTeam in patient.consultTeams"
-                 id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
-              <div class="row mx-0 mb-1 px-1 bg-light rounded">
-                <div class="col p-0 mr-1"
-                     ng-repeat="note in consultTeam.notes">
+            <div class="collapse multi-collapse" ng-repeat="consultTeam in patient.consultTeams" id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
+              <div class="row mx-0 px-1 bg-light rounded">
+                <div class="col mr-1" ng-repeat="note in consultTeam.notes">
                   <div class="form-control border-0 p-1 mr-1 bg-transparent text-secondary smalltext">{{note.content}}</div>
                 </div>
                 <div class="col-auto p-0">
                   <div class="dropdown btn-group btn-group-toggle float-right">
-                    <button class="btn btn-light dropdown-toggle btn-sm text-secondary"
-                            type="button"
-                            id="consultTeamOptions_p{{patient.id}}ct{{consultTeam.id}}"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"></button>
-                    <div class="dropdown-menu dropdown-menu-right shadow-1"
-                         aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item"
-                         href="#">Make Primary</a>
-                      <a class="dropdown-item text-danger"
-                         href="#">Sign Off</a>
+                    <button class="btn btn-light dropdown-toggle btn-sm text-secondary" type="button" id="consultTeamOptions_p{{patient.id}}ct{{consultTeam.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-right shadow-4" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Make Primary</a>
+                      <a class="dropdown-item text-danger" href="#">Sign Off</a>
                     </div>
                     <button class="btn btn-light btn-sm text-secondary">&times</button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row mx-1 mb-1">
-              <div class="col p-0 mr-1"
-                   ng-repeat="note in patient.primaryTeam.notes">
-                <div contenteditable
-                     class="form-control p-1 multiline"
-                     ng-click="showDetail(patient.id,note.name)"
-                     placeholder="{{note.name}}">{{note.content}}</div>
+            <div class="row mx-1">
+              <div class="col p-0 mr-1" ng-repeat="note in patient.primaryTeam.notes">
+                <div contenteditable class="form-control p-1 multiline" ng-click="showDetail(patient.id,note.name);openNav()" placeholder="{{note.name}}" ng-show="noMarkup==true">{{note.content}}</div>
               </div>
             </div>
-            <div class="collapse multi-collapse"
-                 ng-repeat="consultTeam in patient.consultTeams"
-                 id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
+            <div class="collapse multi-collapse" ng-repeat="consultTeam in patient.consultTeams" id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
               <div class="row mx-0 mb-1 px-1 bg-light rounded">
-                <div class="col p-0 mr-1"
-                     ng-repeat="note in consultTeam.notes">
+                <div class="col p-0 mr-1" ng-repeat="note in consultTeam.notes">
                   <div class="form-control border-0 p-1 mr-1 bg-transparent text-secondary smalltext">{{note.content}}</div>
                 </div>
                 <div class="col-auto p-0">
                   <div class="dropdown btn-group btn-group-toggle float-right">
-                    <button class="btn btn-light dropdown-toggle btn-sm text-secondary"
-                            type="button"
-                            id="consultTeamOptions_p{{patient.id}}ct{{consultTeam.id}}"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"></button>
-                    <div class="dropdown-menu dropdown-menu-right shadow-1"
-                         aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item"
-                         href="#">Make Primary</a>
-                      <a class="dropdown-item text-danger"
-                         href="#">Sign Off</a>
+                    <button class="btn btn-light dropdown-toggle btn-sm text-secondary" type="button" id="consultTeamOptions_p{{patient.id}}ct{{consultTeam.id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu dropdown-menu-right shadow-4" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Make Primary</a>
+                      <a class="dropdown-item text-danger" href="#">Sign Off</a>
                     </div>
                     <button class="btn btn-light btn-sm text-secondary">&times</button>
                   </div>
@@ -325,59 +210,28 @@
                 <div class="card-body px-2">
                   <div class="row">
                     <div class="col pr-2">
-                      <div class=""
-                           id=patientName_p{{patient.id}}
-                           placeholder="Name">{{timeline.name}}</div>
+                      <div class="" id=patientName_p{{patient.id}} placeholder="Name">{{timeline.name}}</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-auto">
-              <button class="btn btn-outline-secondary m-1 btn-sm"
-                      ng-show="timeline"
-                      ng-click="timeline=''">Close</button>
+              <button class="btn btn-outline-secondary m-1 btn-sm" ng-show="timeline" ng-click="timeline=''">Close</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer bg-white shadow-4 border-top sticky-bottom container-fluid pt-3 px-4"
-          ng-show="footer==true">
-    <div ng-repeat="patient in patients"
-         ng-if="detailPatient.id==patient.id">
-      <div class="row mb-2">
-        <div class="col"> <span class="h5">{{detailPatient.name}}</span> <span class="badge badge-secondary align-text-top">{{detailTitle}}</span> </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <div ng-repeat="detail in patient.details"
-               ng-if="detail.name==detailTitle">
-            <div class="mb-1"
-                 ng-repeat="item in detail.content"> <span class="badge badge-light border text-secondary font-weight-normal mr-1 align-text-top">{{item.key}}</span> <span ng-repeat="value in item.values">{{value}}</span> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-sanitize.min.js"></script>
-<script type="text/javascript"
-        src="script.js"></script>
+<script type="text/javascript" src="script.js"></script>
 
 </html>

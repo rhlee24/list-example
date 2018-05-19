@@ -115,7 +115,7 @@
         "content": "FSBG: 230 > 224\nWBC: 16.2\n\nCT a/p: 8x6x8cm abscess R paracolic gutter\nCT a/p: inflamed appendix"
       }, {
         "name": "Tasks",
-        "content": "[ ] drain teaching\n[ ] f/u IR"
+        "content": "[ ] drain teaching\n[ ] f/u IR\n[ ] cs medicine for dm management"
       }]
     },
     "consultTeams": [{
@@ -179,7 +179,7 @@
   },
   {
     "id": 1,
-    "name": "Puckerton, Noah",
+    "name": "Hummel, Kurt",
     "dob": "09/04/1945",
     "mrn": "30081127",
     "primaryTeam": {
