@@ -16,6 +16,10 @@ app.controller('controller', function($scope, $http) {
   $scope.userTeam = "ACS";
   $scope.timeline = "";
 
+  $scope.sidebar = true;
+  // document.getElementById("sidenav").style.width = "25%";
+  // document.getElementById("main").style.marginRight = "25%";
+
   $http.get('data.json')
     .then(function(patients) {
       $scope.patients = patients.data;
@@ -54,9 +58,9 @@ app.controller('controller', function($scope, $http) {
   }
   $scope.openNav = function() {
       $scope.sidebar = true;
-      document.getElementById("sidenav").style.width = "25%";
-      document.getElementById("main").style.marginRight = "25%";
-    
+      // document.getElementById("sidenav").style.width = "25%";
+      // document.getElementById("main").style.marginRight = "25%";
+
     // if ($scope.sidebar == false) {
     //   $scope.sidebar = true;
     //   document.getElementById("sidenav").style.width = "25%";
