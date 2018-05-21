@@ -70,8 +70,8 @@ app.controller('controller', function($scope, $http) {
     // }
   }
   $scope.closeNav = function() {
-    document.getElementById("sidenav").style.width = "0";
-    document.getElementById("main").style.marginRight = "0";
+    // document.getElementById("sidenav").style.width = "0";
+    // document.getElementById("main").style.marginRight = "0";
     $scope.sidebar = false;
   }
 

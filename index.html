@@ -361,30 +361,29 @@
                class="sidenav h-100 mr-5">
             <div ng-repeat="patient in patients"
                  ng-if="detailPatient.id==patient.id;"
-                 ng-show="sidebar==true">
-              <div class="card card-body pt-0 px-2 bg-light border-0">
-                <span class="h3">{{detailPatient.name}}</span>
-                <div class="h5 text-secondary">{{detailTitle}}</div>
-                <div class="row">
-                  <div class="col">
-                    <div ng-repeat="detail in patient.details"
-                         ng-if="detail.name==detailTitle">
-                      <div class="mb-3"
-                           ng-repeat="item in detail.content">
-                        <div class="text-secondary align-text-top font-weight-light smalltext pointer"
-                             ng-mouseover="thumbtack=true"
-                             ng-mouseleave="thumbtack=false"
-                             ng-click="thumbtackClick=!thumbtackClick">{{item.key}} </div>
-                        <div ng-repeat="value in item.values"
-                             class="smalltext pointer align-items-top"
-                             ng-mouseover="thumbtack=true"
-                             ng-mouseleave="thumbtack=false"
-                             ng-click="thumbtackClick=!thumbtackClick">
-                          <span>{{value}}
-                            <i class="fas fa-thumbtack ml-1 small text-secondary"
-                               ng-show="thumbtack==true||thumbtackClick==true"></i>
-                          </span>
-                        </div>
+                 ng-show="sidebar==true"
+                 class="card card-body pt-0 px-2 bg-light border-0">
+              <span class="h3">{{detailPatient.name}}</span>
+              <div class="h5 text-secondary">{{detailTitle}}</div>
+              <div class="row">
+                <div class="col">
+                  <div ng-repeat="detail in patient.details"
+                       ng-if="detail.name==detailTitle">
+                    <div class="mb-3"
+                         ng-repeat="item in detail.content">
+                      <div class="text-secondary align-text-top font-weight-light smalltext pointer"
+                           ng-mouseover="thumbtack=true"
+                           ng-mouseleave="thumbtack=false"
+                           ng-click="thumbtackClick=!thumbtackClick">{{item.key}} </div>
+                      <div ng-repeat="value in item.values"
+                           class="smalltext pointer align-items-top"
+                           ng-mouseover="thumbtack=true"
+                           ng-mouseleave="thumbtack=false"
+                           ng-click="thumbtackClick=!thumbtackClick">
+                        <span>{{value}}
+                          <i class="fas fa-thumbtack ml-1 small text-secondary"
+                             ng-show="thumbtack==true||thumbtackClick==true"></i>
+                        </span>
                       </div>
                     </div>
                   </div>
