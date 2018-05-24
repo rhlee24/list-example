@@ -61,6 +61,37 @@ app.controller('controller', function($scope, $http) {
       }
     }
   }
+  $scope.clearSelected = function() {
+    for (let p = 0; p < $scope.patients.length; p++) {
+      $(".patientCard[id=patientName_p" + $scope.patients[p].id + "]").css({
+        "box-shadow": "none"
+      });
+    }
+  }
+  $scope.showAppendicitis = function() {
+    $scope.appendicitis = true;
+    $scope.diabetes = false;
+    $scope.abscess = false;
+    $scope.noMarkup = false;
+  }
+  $scope.showAbscess = function() {
+    $scope.appendicitis = false;
+    $scope.diabetes = false;
+    $scope.abscess = true;
+    $scope.noMarkup = false;
+  }
+  $scope.showDiabetes = function() {
+    $scope.appendicitis = false;
+    $scope.diabetes = true;
+    $scope.abscess = false;
+    $scope.noMarkup = false;
+  }
+  $scope.showNoMarkup = function() {
+    $scope.appendicitis = false;
+    $scope.diabetes = false;
+    $scope.abscess = false;
+    $scope.noMarkup = true;
+  }
   $scope.openNav = function() {
     $scope.sidebar = true;
     // document.getElementById("sidenav").style.width = "25%";
