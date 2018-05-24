@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  height: 180%;
+  height: 130%;
   /* margin-bottom: 50px; */
 }
 
@@ -147,7 +147,7 @@ a:hover {
   word-break: normal;
   border-color: transparent;
   min-height: 5.2em !important;
-  font-size: 11pt !important;
+  font-size: 10pt !important;
 }
 
 .smalltext {

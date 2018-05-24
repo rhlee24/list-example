@@ -348,8 +348,18 @@
                  ng-if="detailPatient.id==patient.id;"
                  ng-show="sidebar==true"
                  ng-hide="sidebar==false">
-              <div class="h4">{{detailPatient.name}}
-                <div class="h5 text-secondary">{{detailTitle}}</div>
+              <div class="h4 mb-2">{{detailPatient.name}}
+                <div class="h5 mb-2 text-secondary">{{detailTitle}}</div>
+              </div>
+              <div class="row mb-2"
+                   ng-if="patient.id==0">
+                <div class="col"><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-mouseover="showAppendicitis()"
+                        ng-mouseleave="showNoMarkup()">Appendicitis</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-mouseover="showAbscess()"
+                        ng-mouseleave="showNoMarkup()">Abscess</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-mouseover="showDiabetes()"
+                        ng-mouseleave="showNoMarkup()">Diabetes</span> </div>
               </div>
               <div class="row">
                 <div class="col">
@@ -357,7 +367,7 @@
                        ng-if="detail.name==detailTitle">
                     <div class="mb-3"
                          ng-repeat="item in detail.content">
-                      <div class="text-secondary align-text-top font-weight-light small pointer"
+                      <div class="text-secondary align-text-top small pointer"
                            ng-click="thumbtackClick=!thumbtackClick">{{item.key}}</div>
                       <div ng-repeat="value in item.values"
                            class="ml-1 smalltext pointer align-items-top"
@@ -373,15 +383,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col"><span class="badge badge-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showAppendicitis()"
-                        ng-mouseleave="showNoMarkup()">Appendicitis</span><span class="badge badge-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showAbscess()"
-                        ng-mouseleave="showNoMarkup()">Abscess</span><span class="badge badge-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showDiabetes()"
-                        ng-mouseleave="showNoMarkup()">Diabetes</span> </div>
               </div>
             </div>
           </div>
