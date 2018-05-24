@@ -87,11 +87,9 @@
                  ng-click="openNav();showFloorList=false;">
               <div class="card-body pt-2 pb-0">
                 <div class="row">
-                  <div class="col-auto px-1 align-text-bottom">
-                    <div contenteditable
-                         class="h5 typeahead singleline search"
-                         placeholder="Name">{{patient.name}}</div>
-                  </div>
+                  <div class="col-auto px-1 py-1"> <span contenteditable
+                          class="h5 typeahead singleline search"
+                          placeholder="Name">{{patient.name}}</span> </div>
                   <div class="col">
                     <div class="btn-group-toggle float-left"
                          role="group"
@@ -248,10 +246,10 @@
                 <div class="collapse multi-collapse"
                      ng-repeat="consultTeam in patient.consultTeams"
                      id=consultTeamNotes_p{{patient.id}}ct{{consultTeam.id}}>
-                  <div class="row mx-0 mb-1 px-1 bg-light rounded">
+                  <div class="row ml-0 mr-1 mt-1 mb-0 px-1 bg-light rounded">
                     <div class="col p-0 mr-1"
                          ng-repeat="note in consultTeam.notes">
-                      <div class="form-control border-0 p-1 mr-1 bg-transparent text-secondary smalltext">{{note.content}}</div>
+                      <div class="form-control border-0 px-2 mr-1 pt-2 bg-transparent text-secondary smalltext">{{note.content}}</div>
                     </div>
                     <div class="col-auto p-0">
                       <div class="dropdown btn-group btn-group-toggle float-right">
