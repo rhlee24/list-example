@@ -75,22 +75,22 @@
              ng-click="showFloorList=true;sidebar=false;"></div>
         <div class="col">
           <!--TIMELINE-->
-          <div class="mt-2 mb-0 ml-1 h3 pointer"
+          <div class="mt-2 mb-0 ml-1 h4 pointer"
                ng-click="showFloorList=true;sidebar=false;"
                id="floor">
             <a href="#">7-West</a>
           </div>
-          <div ng-repeat="patient in patients">
+          <div ng-repeat="patient in patients"
+               ng-click="openNav();showFloorList=false;">
             <div class="card mt-2 patientCard"
-                 id=patientName_p{{patient.id}}>
-              <div class="card-body pt-2 pb-0"
-                   ng-click="showDetail(patient.id,'Demographics')">
+                 id=patientName_p{{patient.id}}
+                 ng-click="openNav();showFloorList=false;">
+              <div class="card-body pt-2 pb-0">
                 <div class="row">
                   <div class="col-auto px-1 align-text-bottom">
                     <div contenteditable
                          class="h5 typeahead singleline search"
-                         placeholder="Name"
-                         ng-click="openNav();showFloorList=false;">{{patient.name}}</div>
+                         placeholder="Name">{{patient.name}}</div>
                   </div>
                   <div class="col">
                     <div class="btn-group-toggle float-left"
@@ -337,7 +337,7 @@
           <div id="sidenav"
                class="sidenav h-100 mr-5 sticky-top">
             <div ng-show="showFloorList==true;sidebar==false;">
-              <div class="h3">Patients
+              <div class="h4">Patients
                 <div class="h5 text-secondary">Location</div>
               </div>
               <div class="smalltext text-secondary">7-West</div>
@@ -350,7 +350,7 @@
                  ng-if="detailPatient.id==patient.id;"
                  ng-show="sidebar==true"
                  ng-hide="sidebar==false">
-              <div class="h3">{{detailPatient.name}}
+              <div class="h4">{{detailPatient.name}}
                 <div class="h5 text-secondary">{{detailTitle}}</div>
               </div>
               <div class="row">
