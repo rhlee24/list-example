@@ -77,9 +77,11 @@
           <!--TIMELINE-->
           <div class="mt-2 mb-0 ml-1 h4 pointer"
                ng-click="showFloorList=true;sidebar=false;"
-               id="floor"> <span>7-West</span> </div>
+               id="floor">
+            <a href="#">7-West</a>
+          </div>
           <div ng-repeat="patient in patients"
-               ng-click="openNav();showFloorList=false;">
+               ng-click="openNav();showFloorList=false;showNoMarkup()">
             <div class="card mt-2 patientCard"
                  id=patientName_p{{patient.id}}>
               <div class="card-body pt-2 pb-0"

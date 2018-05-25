@@ -33,12 +33,6 @@ app.controller('controller', function($scope, $http) {
     })
   });
   $scope.showDetail = function(patientId, noteName) {
-    $scope.appendicitis = false;
-    $scope.diabetes = false;
-    $scope.abscess = false;
-    $scope.noMarkup = true;
-    $scope.updates = false;
-    $scope.magic = false;
     $(".patientCard[id=patientName_p" + patientId + "]").css({
       "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
     })
@@ -57,6 +51,8 @@ app.controller('controller', function($scope, $http) {
         break;
       }
     }
+    $scope.noMarkup = true;
+    $scope.magic = false;
   }
   $scope.clearSelected = function() {
     for (let p = 0; p < $scope.patients.length; p++) {
