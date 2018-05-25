@@ -77,9 +77,7 @@
           <!--TIMELINE-->
           <div class="mt-2 mb-0 ml-1 h4 pointer"
                ng-click="showFloorList=true;sidebar=false;"
-               id="floor">
-            <a href="#">7-West</a>
-          </div>
+               id="floor"> <span>7-West</span> </div>
           <div ng-repeat="patient in patients"
                ng-click="openNav();showFloorList=false;">
             <div class="card mt-2 patientCard"
@@ -115,12 +113,12 @@
                             placeholder="Room">{{patient.room}}</span> </div>
                   </div>
                   <div class="col-auto px-0">
-                    <button class="btn btn-outline-secondary px-2 mx-1 primary"
+                    <button class="btn btn-outline-secondary px-2 mx-1 primary float-right"
                             id=primaryTeamOptions_p{{patient.id}}
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false">
-                      <i class="fas fa-magic"></i>
+                      <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right shadow-4"
                          aria-labelledby="dropdownMenuButton">
@@ -149,6 +147,34 @@
                 </div>
               </div>
               <div class="card-body px-0 pb-1 pt-0">
+                <div class="row mx-1"
+                     ng-if="updates==true&&patient.id==0">
+                  <div class="col p-0 mr-1">
+                    <div contenteditable
+                         class="form-control p-1 multiline"
+                         placeholder="{{note.name}}">44 yo F DM, HTN, with RLQ pain x3 days, CT acute appendicitis. C/b abscess now s/p IR drain. <br><br>H/o c-section x2</div>
+                  </div>
+                  <div class="col p-0 mr-1">
+                    <div contenteditable
+                         class="form-control p-1 multiline"
+                         placeholder="{{note.name}}">T: 101.2F <br>HR: 90 <br>BP: 136/86 <br>RR: 16 <br>SpO2: 100% on RA</div>
+                  </div>
+                  <div class="col p-0 mr-1">
+                    <div contenteditable
+                         class="form-control p-1 multiline"
+                         placeholder="{{note.name}}">SCH: cefoxitin, norco, colace, lisinopril, iss, lovenox <br> <br>PRN: <span class="text-danger">dilaudid <i class="fas fa-times pointer"></i><br><span class="text-success">tylenol <i class="fas fa-plus pointer"></i></span></span> <br> <br>CONT: NS@125</div>
+                  </div>
+                  <div class="col p-0 mr-1">
+                    <div contenteditable
+                         class="form-control p-1 multiline"
+                         placeholder="{{note.name}}">FSBG: 230 > 224 <br>WBC: 16.2 <br> <br>CT a/p: 8x6x8cm abscess R paracolic gutter <br>CT a/p: inflamed appendix</div>
+                  </div>
+                  <div class="col p-0 mr-1">
+                    <div contenteditable
+                         class="form-control p-1 multiline"
+                         placeholder="{{note.name}}">[ ] drain teaching <br>[ ] f/u IR <br>[ ] cs medicine for dm management</div>
+                  </div>
+                </div>
                 <div class="row mx-1"
                      ng-if="appendicitis==true&&patient.id==0">
                   <div class="col p-0 mr-1">
@@ -349,20 +375,25 @@
                  ng-show="sidebar==true"
                  ng-hide="sidebar==false">
               <div class="h4 mb-2">{{detailPatient.name}}
-                <div class="h5 mb-2 text-secondary">{{detailTitle}}</div>
+                <button class="btn btn-outline-secondary p-1 align-text-bottom">
+                  <i class="fas fa-magic"
+                     ng-click="showMagic()"></i>
+                </button>
               </div>
+              <!-- MAGIC -->
               <div class="row mb-2"
-                   ng-if="patient.id==0">
-                <div class="col"><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showAppendicitis()"
-                        ng-mouseleave="showNoMarkup()">Appendicitis</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showAbscess()"
-                        ng-mouseleave="showNoMarkup()">Abscess</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
-                        ng-mouseover="showDiabetes()"
-                        ng-mouseleave="showNoMarkup()">Diabetes</span> </div>
+                   ng-if="patient.id==0 && magic==true">
+                <div class="col-12 pb-3"><span class="badge badge-danger mt-1 pointer border border-danger"
+                        ng-click="showUpdates();">3 Updates</span></div>
+                <div class="col-12"><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-click="showAppendicitis()">Appendicitis</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-click="showAbscess()">Abscess</span><span class="badge badge-light text-secondary font-weight-light border border-secondary mr-1 mt-1 pointer"
+                        ng-click="showDiabetes()">Diabetes</span> </div>
               </div>
-              <div class="row">
+              <div class="row"
+                   ng-hide="magic==true">
                 <div class="col">
+                  <div class="h5 mb-2 text-secondary">{{detailTitle}}</div>
                   <div ng-repeat="detail in patient.details"
                        ng-if="detail.name==detailTitle">
                     <div class="mb-3"

@@ -33,6 +33,12 @@ app.controller('controller', function($scope, $http) {
     })
   });
   $scope.showDetail = function(patientId, noteName) {
+    $scope.appendicitis = false;
+    $scope.diabetes = false;
+    $scope.abscess = false;
+    $scope.noMarkup = true;
+    $scope.updates = false;
+    $scope.magic = false;
     $(".patientCard[id=patientName_p" + patientId + "]").css({
       "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
     })
@@ -44,15 +50,6 @@ app.controller('controller', function($scope, $http) {
     $(".card[id=patientName_p" + patientId + "]").css({
       "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
     })
-    // $("#patientName_p" + patientId).hover(function() {
-    //   $(this).css({
-    //     "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
-    //   })
-    // }, function() {
-    //   $(this).css({
-    //     "box-shadow": "none"
-    //   })
-    // });
     for (let p = 0; p < $scope.patients.length; p++) {
       if ($scope.patients[p].id == patientId) {
         $scope.detailPatient = $scope.patients[p];
@@ -68,29 +65,44 @@ app.controller('controller', function($scope, $http) {
       });
     }
   }
+  $scope.showMagic = function() {
+    $scope.magic = true
+    $scope.showNoMarkup();
+  }
+  $scope.showUpdates = function() {
+    $scope.updates = true;
+    $scope.noMarkup = false;
+    $scope.appendicitis = false;
+    $scope.diabetes = false;
+    $scope.abscess = false;
+  }
   $scope.showAppendicitis = function() {
-    $scope.appendicitis = true;
+    $scope.appendicitis = true;;
     $scope.diabetes = false;
     $scope.abscess = false;
     $scope.noMarkup = false;
+    $scope.updates = false;
   }
   $scope.showAbscess = function() {
     $scope.appendicitis = false;
     $scope.diabetes = false;
     $scope.abscess = true;
     $scope.noMarkup = false;
+    $scope.updates = false;
   }
   $scope.showDiabetes = function() {
     $scope.appendicitis = false;
     $scope.diabetes = true;
     $scope.abscess = false;
     $scope.noMarkup = false;
+    $scope.updates = false;
   }
   $scope.showNoMarkup = function() {
     $scope.appendicitis = false;
     $scope.diabetes = false;
     $scope.abscess = false;
     $scope.noMarkup = true;
+    $scope.updates = false;
   }
   $scope.openNav = function() {
     $scope.sidebar = true;
