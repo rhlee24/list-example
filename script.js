@@ -100,8 +100,19 @@ app.controller('controller', function($scope, $http) {
     $scope.noMarkup = true;
     $scope.updates = false;
   }
-  $scope.openNav = function() {
+  $scope.openNav = function(patientId) {
     $scope.sidebar = true;
+    $(".patientCard[id=patientName_p" + patientId + "]").css({
+      "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
+    })
+    for (let p = 0; p < $scope.patients.length; p++) {
+      $(".patientCard[id=patientName_p" + $scope.patients[p].id + "]").css({
+        "box-shadow": "none"
+      });
+    }
+    $(".card[id=patientName_p" + patientId + "]").css({
+      "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
+    })
     // document.getElementById("sidenav").style.width = "25%";
     // document.getElementById("main").style.marginRight = "25%";
     // if ($scope.sidebar == false) {
