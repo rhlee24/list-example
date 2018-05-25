@@ -377,7 +377,8 @@
                  ng-show="sidebar==true"
                  ng-hide="sidebar==false">
               <div class="h4 mb-2">{{detailPatient.name}}
-                <button class="btn btn-outline-secondary p-1 align-text-bottom">
+                <button class="btn btn-outline-secondary p-1 align-text-bottom"
+                        ng-click="magic=!magic">
                   <i class="fas fa-magic"
                      ng-click="showMagic()"></i>
                 </button>

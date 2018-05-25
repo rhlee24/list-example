@@ -102,17 +102,14 @@ app.controller('controller', function($scope, $http) {
   }
   $scope.openNav = function(patientId) {
     $scope.sidebar = true;
-    $(".patientCard[id=patientName_p" + patientId + "]").css({
-      "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
-    })
     for (let p = 0; p < $scope.patients.length; p++) {
-      $(".patientCard[id=patientName_p" + $scope.patients[p].id + "]").css({
-        "box-shadow": "none"
-      });
+      // $(".patientCard[id=patientName_p" + $scope.patients[p].id + "]").css({
+      //   "box-shadow": "none"
+      // });
     }
-    $(".card[id=patientName_p" + patientId + "]").css({
-      "box-shadow": "0 0 0 .05em rgba(52, 58, 64, 0.50)"
-    })
+    // $(".card[id=patientName_p" + patientId + "]").css({
+    //   "box-shadow": "0 0 0 .1em rgba(0, 123, 255, .4)"
+    // })
     // document.getElementById("sidenav").style.width = "25%";
     // document.getElementById("main").style.marginRight = "25%";
     // if ($scope.sidebar == false) {

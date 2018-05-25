@@ -63,12 +63,20 @@ a:hover {
   border-radius: 4px;
 }
 
-.patientCard:hover {
-  box-shadow: 0 0 0 .05em rgba(52, 58, 64, 0.25);
+.form-control {
+  background-color: transparent;
+}
+
+.form-control:focus {
+  background-color: transparent;
 }
 
 .patientCard:active {
-  box-shadow: 0 0 .05em .05em rgba(0, 123, 255, .75) !important;
+  background-color: #fff !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 .100rem .4rem rgba(0, 0, 0, .4) !important;
+  transition: 0.5s all !important;
 }
 
 .rounded-top {
